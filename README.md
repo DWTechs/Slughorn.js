@@ -50,7 +50,7 @@ import { convert } from "@dwtechs/slughorn";
 const url = 'Hello World'; // A sentence to be slugified
 let slug = convert(url); // hello-world
 
-const options = {separator: '_', maxLenght: 7 };
+const options = {separator: '_', maxLenght: 8 };
 slug = convert(url, options); // hello_wo
 ```
 
@@ -62,7 +62,7 @@ const slughorn = require("@dwtechs/slughorn/dist/slughorn.cjs");
 var url = 'Hello World'; // A sentence to be slugified
 var slug = slughorn.convert(url); // hello-world
 
-var options = {separator: '_', maxLenght: 7 };
+var options = {separator: '_', maxLenght: 8 };
 slug = slughorn.convert(url, options); // hello_wo
 ```
 
@@ -77,7 +77,7 @@ slug = slughorn.convert(url, options); // hello_wo
 var url = 'Hello World'; // A sentence to be slugified
 var slug = Slughorn.convert(url); // hello-world
 
-var options = {separator: '_', maxLenght: 7 };
+var options = {separator: '_', maxLenght: 8 };
 slug = convert(url, options); // hello_wo
 ```
 
@@ -90,7 +90,7 @@ convert(url: string, options?: Options): string {}
 interface Options {
   separator?: string; // a string to replace spaces. Default to '-'
   maxLength?: number; // The max length of the slug. Default to 80
-  seo?: boolean; // SEO treatment. Default to 'true'
+  seo?: boolean; // SEO optimization. Default to 'true'
 }
 
 ```
