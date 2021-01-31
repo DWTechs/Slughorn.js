@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+
+  slughorn:
+    build: ./
+    container_name: slughorn
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules

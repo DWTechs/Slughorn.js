@@ -1,0 +1,64 @@
+{
+  "name": "@dwtechs/slughorn",
+  "version": "0.1.0",
+  "description": "is an open source library that transforms string value to a url slug optimized for SEO.",
+  "keywords": [
+    "slug",
+    "slugify",
+    "slugifier",
+    "url slug",
+    "SEO"
+  ],
+  "homepage": "https://github.com/DWTechs/Slughorn.js",
+  "main": "dist/slughorn",
+  "types": "dist/slughorn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DWTechs/Slughorn.js"
+  },
+  "bugs": {
+    "url": "https://github.com/DWTechs/Slughorn.js/issues",
+    "email": ""
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ludovic Cluber",
+    "email": "http://www.lcluber.com/contact",
+    "url": "http://www.lcluber.com"
+  },
+  "contributors": [],
+  "scripts": {
+    "start": "",
+    "build": "node ./scripts/clear && tsc && npm run rollup && npm run uglify && node ./scripts/copy && npm run test",
+    "rollup:mjs": "rollup --config rollup.config.mjs.js",
+    "rollup:iife": "rollup --config rollup.config.iife.js",
+    "rollup:cjs": "rollup --config rollup.config.cjs.js",
+    "rollup": "npm run rollup:mjs && npm run rollup:iife && npm run rollup:cjs",
+    "uglify": "uglifyjs build/slughorn.iife.js --config-file uglify.config.json --output build/slughorn.iife.min.js",
+    "test": "jest --coverage"
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@dwtechs/checkhard": "2.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.11.6",
+    "@babel/preset-env": "7.11.5",
+    "@rollup/plugin-commonjs": "15.0.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
+    "babel-jest": "24.9.0",
+    "core-js": "3.6.4",
+    "jest": "24.9.0",
+    "rollup": "2.37.1",
+    "rollup-plugin-analyzer": "3.3.0",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-progress": "1.1.2",
+    "rollup-plugin-size-snapshot": "0.12.0",
+    "rollup-plugin-sizes": "1.0.3",
+    "tslint": "5.20.1",
+    "typescript": "4.0.2",
+    "uglify-js": "3.10.4"
+  }
+}
