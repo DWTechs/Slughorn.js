@@ -53,4 +53,5 @@ OR
 - dist/
 - src/
 - tests/
+- web/
 
