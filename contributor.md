@@ -50,6 +50,7 @@ OR
 
 ## Folders
 
+- scripts/
 - dist/
 - src/
 - tests/

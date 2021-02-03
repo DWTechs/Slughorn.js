@@ -1,14 +1,23 @@
-import { isPositive, isString, isNumber } from "@dwtechs/checkhard";
+import { isPositive, isString, isObject } from "@dwtechs/checkhard";
 import { Options } from './interfaces';
 
-function convert(url: string, options?: Options): string {
+function convert(url: string, options?: Options): string|false {
   
-  if (!isString(url) && !isNumber(url)) {
-    return url;
+  if (!isString(url)) {
+    return false;
   }
-  const separator = (options && options.separator && isString(options.separator)) ? options.separator : '-';
-  const maxLength = (options && options.maxLength && isPositive(options.maxLength)) ? options.maxLength : 80;
-  const seo       = (options && options.seo && !options.seo) ? false : true;
+
+  // Default options
+  let separator = '-';
+  let maxLength = 80;
+  let seo       = true;
+
+  // User options if provided
+  if (options && isObject(options)) {
+    separator = (options.separator && isString(options.separator)) ? options.separator : separator;
+    maxLength = (options.maxLength && isPositive(options.maxLength)) ? options.maxLength : maxLength;
+    seo       = (options.seo && !options.seo) ? false : seo;
+  }
   
   const map = {
     a : /á|à|ã|â|ª/, // |À|Á|Ã|Â|/,

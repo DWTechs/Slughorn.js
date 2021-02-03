@@ -3,6 +3,5 @@ node_modules/
 build/
 .tscache/
 npm-debug.log
-package-lock.json
 tests/coverage/
 .size-snapshot.json

@@ -85,7 +85,7 @@ slug = convert(url, options); // hello_wo
 
 ```javascript
 
-convert(url: string, options?: Options): string {}
+convert(url: string, options?: Options): string|false {}
 
 interface Options {
   separator?: string; // a string to replace spaces. Default to '-'

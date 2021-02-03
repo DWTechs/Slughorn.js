@@ -30,5 +30,5 @@ export interface Options {
     seo?: boolean;
 }
 
-declare function convert(url: string, options?: Options): string;
+declare function convert(url: string, options?: Options): string|false;
 export { convert };

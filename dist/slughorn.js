@@ -24,18 +24,25 @@ SOFTWARE.
 https://github.com/DWTechs/Slughorn.js
 */
 
-import { isString, isNumber, isPositive } from '@dwtechs/checkhard';
+import { isString, isObject, isPositive } from '@dwtechs/checkhard';
 
 function convert(url, options) {
   var _map;
 
-  if (!isString(url) && !isNumber(url)) {
-    return url;
+  if (!isString(url)) {
+    return false;
   }
 
-  var separator = options && options.separator && isString(options.separator) ? options.separator : '-';
-  var maxLength = options && options.maxLength && isPositive(options.maxLength) ? options.maxLength : 80;
-  var seo = options && options.seo && !options.seo ? false : true;
+  var separator = '-';
+  var maxLength = 80;
+  var seo = true;
+
+  if (options && isObject(options)) {
+    separator = options.separator && isString(options.separator) ? options.separator : separator;
+    maxLength = options.maxLength && isPositive(options.maxLength) ? options.maxLength : maxLength;
+    seo = options.seo && !options.seo ? false : seo;
+  }
+
   var map = (_map = {
     a: /á|à|ã|â|ª/,
     d: /đ|∂/,

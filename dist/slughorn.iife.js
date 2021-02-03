@@ -84,6 +84,18 @@ var Slughorn = (function (exports) {
     return type == 'symbol' || type === 'object' && sym != null && getTag(sym) == '[object Symbol]';
   }
 
+  function isArray(array) {
+    return !isNil(array) && array.constructor === Array;
+  }
+
+  function isObject(object) {
+    return object !== null && typeof object === "object" && !isArray(object);
+  }
+
+  function isNil(nil) {
+    return nil == null;
+  }
+
   function isPositive(number, typeCheck) {
     if (typeCheck === void 0) {
       typeCheck = true;
@@ -95,13 +107,20 @@ var Slughorn = (function (exports) {
   function convert(url, options) {
     var _map;
 
-    if (!isString(url) && !isNumber(url)) {
-      return url;
+    if (!isString(url)) {
+      return false;
     }
 
-    var separator = options && options.separator && isString(options.separator) ? options.separator : '-';
-    var maxLength = options && options.maxLength && isPositive(options.maxLength) ? options.maxLength : 80;
-    var seo = options && options.seo && !options.seo ? false : true;
+    var separator = '-';
+    var maxLength = 80;
+    var seo = true;
+
+    if (options && isObject(options)) {
+      separator = options.separator && isString(options.separator) ? options.separator : separator;
+      maxLength = options.maxLength && isPositive(options.maxLength) ? options.maxLength : maxLength;
+      seo = options.seo && !options.seo ? false : seo;
+    }
+
     var map = (_map = {
       a: /á|à|ã|â|ª/,
       d: /đ|∂/,
