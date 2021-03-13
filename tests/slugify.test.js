@@ -36,6 +36,10 @@ test("sends 'Hello the \"World' to slugify with _ separator and maxLength = 8", 
   expect(sh.convert('Hello the "World', {separator: '_', maxLength: 8 })).toBe('hello_wo');
 });
 
+test("sends 'dédoublonner' to slugify with _ separator", () => {
+  expect(sh.convert('dédoublonner', {separator: '_' })).toBe('dedoublonner');
+});
+
 test("sends number to slugify with", () => {
   expect(sh.convert('-4')).toBe('-4');
 });

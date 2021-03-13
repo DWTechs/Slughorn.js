@@ -1,6 +1,6 @@
 {
   "name": "@dwtechs/slughorn",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "is an open source library that transforms string value to a url slug optimized for SEO.",
   "keywords": [
     "slug",

@@ -189,7 +189,7 @@ var Slughorn = (function (exports) {
     if (seo) {
       var _seoMap;
 
-      var seoMap = (_seoMap = {}, _seoMap[separator] = /the|on|and|is|of|you/, _seoMap);
+      var seoMap = (_seoMap = {}, _seoMap[separator] = / (the|on|and|is|of|you) /, _seoMap);
       url = url.replace(new RegExp(seoMap[separator], 'g'), separator);
     }
 

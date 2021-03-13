@@ -185,7 +185,7 @@ function convert(url, options) {
     url = url.trim().toLowerCase();
     if (seo) {
         const seoMap = {
-            [separator]: /the|on|and|is|of|you/
+            [separator]: / (the|on|and|is|of|you) /
         };
         url = url.replace(new RegExp(seoMap[separator], 'g'), separator);
     }
